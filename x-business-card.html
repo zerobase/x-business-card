@@ -176,14 +176,6 @@
     shadowRoot.querySelector('.me-title').textContent = this.dataset.title;
     shadowRoot.querySelector('.me-contact').textContent = this.dataset.contact;
     shadowRoot.querySelector('.me-contact-url').href = this.dataset.contactUrl;
-    var color = this.dataset.color
-    if (color) {
-      shadowRoot.querySelector('.me').style.color = color;
-    }    
-    var bgColor = this.dataset.backgroundColor
-    if (bgColor) {
-      shadowRoot.querySelector('.me').style.backgroundColor = bgColor;
-    }    
   };
   
   // カスタム要素を登録
