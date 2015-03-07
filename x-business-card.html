@@ -151,16 +151,6 @@
   // template
   var template = doc.querySelector('template').content;
   
-  // あなたのプロフィール
-  var me = {
-    img: "https://avatars1.githubusercontent.com/u/4105415",
-    name: "えんぷら部",
-    company: "html5jエンタープライズ部",
-    title: "オープンコミュニティ",
-    contact: "#html5biz",
-    contactUrl: "http://www.html5biz.org/"
-  };
-
   // インスタンス化した場合の処理
   elementProto.createdCallback = function() {
     // templateをDeepcloneします。
@@ -175,12 +165,17 @@
   elementProto.attachedCallback = function() {
     // ShadowDOM化した内部から所定の要素を検索してプロフィールを設定する。
     var shadowRoot = this.shadowRoot;
-    shadowRoot.querySelector('.me-image img').src = me.img;
-    shadowRoot.querySelector('.me-name').textContent = me.name;
-    shadowRoot.querySelector('.me-company').textContent = me.company;
-    shadowRoot.querySelector('.me-title').textContent = me.title;
-    shadowRoot.querySelector('.me-contact').textContent = me.contact;
-    shadowRoot.querySelector('.me-contact-url').href = me.contactUrl;
+    
+    // カスタム属性値の読み込み
+    /**
+     * customAttributes: 'img', 'name', 'company', 'title', 'contact', 'contactUrl'(contact-url)
+     */
+    shadowRoot.querySelector('.me-image img').src = this.dataset.img;
+    shadowRoot.querySelector('.me-name').textContent = this.dataset.name;
+    shadowRoot.querySelector('.me-company').textContent = this.dataset.company;
+    shadowRoot.querySelector('.me-title').textContent = this.dataset.title;
+    shadowRoot.querySelector('.me-contact').textContent = this.dataset.contact;
+    shadowRoot.querySelector('.me-contact-url').href = this.dataset.contactUrl;
   };
   
   // カスタム要素を登録
