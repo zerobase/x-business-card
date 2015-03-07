@@ -168,7 +168,7 @@
     
     // カスタム属性値の読み込み
     /**
-     * customAttributes: 'img', 'name', 'company', 'title', 'contact', 'contactUrl'(contact-url)
+     * customAttributes: 'img', 'name', 'company', 'title', 'contact', 'contactUrl'(contact-url), 'backgroundColor'(background-color)
      */
     shadowRoot.querySelector('.me-image img').src = this.dataset.img;
     shadowRoot.querySelector('.me-name').textContent = this.dataset.name;
@@ -176,6 +176,7 @@
     shadowRoot.querySelector('.me-title').textContent = this.dataset.title;
     shadowRoot.querySelector('.me-contact').textContent = this.dataset.contact;
     shadowRoot.querySelector('.me-contact-url').href = this.dataset.contactUrl;
+    shadowRoot.querySelector('.me').style.backgroundColor = this.dataset.backgroundColor;
   };
   
   // カスタム要素を登録
